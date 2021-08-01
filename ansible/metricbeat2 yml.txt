@@ -1,0 +1,44 @@
+
+
+---
+- name: installing and configuring metricbeat
+  hosts: webservers
+  become: true
+  tasks:
+#set max_map_count
+  - name: set vm.max_map_count to 262144 in sysctrl
+    sysctl: name={{ item.key }} value={{ item.value }}
+    with_items:
+      - { key: "vm.max_map_count", value: "262144" }
+
+#download metricbeat
+  - name: download metric beat
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.2-amd64.deb
+
+#install metricbeat
+  - name: install metricbeat
+    command: sudo dpkg -i metricbeat-7.6.2-amd64.deb
+
+#copy to metricbeat folders
+  - name: copy metricbeat2.yml
+    copy:
+      src: /etc/ansible/metricbeat-config.yml
+      dest: /etc/metricbeat/metricbeat2.yml
+
+# metricbeat modules enable docker
+  - name: enable metricbeat docker
+    command: metricbeat modules enable docker
+
+#metricbeat setup
+  - name: metricbeat setup
+    command: sudo metricbeat setup
+
+#start metricbeat
+  - name: start metricbeat
+    command: service metricbeat start
+
+#enable metricbeat on startup
+  - name: enable metricbeat service
+    systemd:
+      name: metricbeat
+      enabled: yes
