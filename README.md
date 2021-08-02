@@ -4,64 +4,14 @@ The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
 
-(/https://github.com/smurdock03/Elk-Stack-Project/blob/main/diagrams/Elk%20Stack%20Diagram.png)
+[https://github.com/smurdock03/Elk-Stack-Project/blob/main/diagrams/Elk%20Stack%20Diagram.png]
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _filebeat.yml_ file may be used to install only certain pieces of it, such as Filebeat.
 
   - _TODO: Enter the playbook file._
 
-  
----
-- name: Install Elk Server Components
-  hosts: elk
-  become: true
-  tasks:
-
-  - name: set Max map count to 262144 in sysctl
-    sysctl:
-      name: vm.max_map_count
-      value: 262144
-
-  - name: Install Docker
-    apt:
-      name: docker.io
-      state: present
-      update_cache: yes
-
-  - name: Install PythonPip
-    apt:
-      name: python3-pip
-      state: present
-
-  - name: install pip docker
-    pip:
-      name: docker
-      state: present
-
-  - name: install docker elk container
-    docker_container:
-      name: elkV761
-      image: sebp/elk:761
-      state: started
-      ports:
-       - "5601:5601"
-       - "9200:9200"
-       - "5044:5044"
-      restart_policy: always
-
-  - name: start docker on startup
-    systemd:
-      name: docker
-      enabled: yes
-
-This document contains the following details:
-- Description of the Topology
-- Access Policies
-- ELK Configuration
-  - Beats in Use
-  - Machines Being Monitored
-- How to Use the Ansible Build
+  [https://github.com/smurdock03/Elk-Stack-Project/blob/main/ansible/elk%20playbook%20yml.txt]
 
 
 ### Description of the Topology
