@@ -1,0 +1,72 @@
+tar cvvf Javaless_Docs.tar --exclude="TarDocs/Documents/Java" TarDocs/
+
+tar tvf Javaless_Doc.tar | grep Java
+
+0 06 * * 3 tar -zcf /auth_backup.tgz /var/log/auth.log
+
+sudo mkdir -p ~/backups/{freemem,freedisk,openlist,diskuse}
+
+ #!/bin/bash
+free -h > ~/backups/freemem/free_mem.txt
+du -h > ~/backups/diskuse/disk_usage.txt
+lsof > ~/backups/openlist/open_list.txt
+df -h > ~/backups/freedisk/free_disk.txt
+
+I tailed each txt file to keep the amount to a far smaller amount
+tail disk_usage.txt 
+28K	./python/3/Activities/10-Reading-Rainbow/Unsolved/Colors
+40K	./python/3/Activities/10-Reading-Rainbow/Unsolved
+80K	./python/3/Activities/10-Reading-Rainbow
+264K	./python/3/Activities
+268K	./python/3
+580K	./python
+4.0K	./Templates
+4.0K	./Videos
+4.0K	./.ssh
+1.5G	
+tail freemem/free_mem.txt 
+              total        used        free      shared  buff/cache   available
+Mem:           3.9G        1.9G        139M        232M        1.8G        1.5G
+Swap:          1.9G         60M        1.8G
+
+tail freedisk/free_disk.txt 
+/dev/loop16      12M   12M     0 100% /snap/ngrok/32
+/dev/loop17      90M   90M     0 100% /snap/core/8039
+/dev/loop18     2.5M  2.5M     0 100% /snap/gnome-calculator/884
+/dev/loop19     384K  384K     0 100% /snap/gnome-characters/708
+/dev/loop20     4.3M  4.3M     0 100% /snap/gnome-calculator/544
+/dev/loop21     219M  219M     0 100% /snap/gnome-3-34-1804/66
+/dev/loop22      55M   55M     0 100% /snap/core18/1265
+/vagrant        459G  113G  346G  25% /vagrant
+tmpfs           395M   28K  395M   1% /run/user/121
+tmpfs           395M   40K  395M   1% /run/user/1000
+	
+	lsof      23437                  root  txt       REG                8,1    163224    1573548 /usr/bin/lsof
+lsof      23437                  root  mem       REG                8,1  10281936    1579630 /usr/lib/locale/locale-archive
+lsof      23437                  root  mem       REG                8,1    144976     794294 /lib/x86_64-linux-gnu/libpthread-2.27.so
+lsof      23437                  root  mem       REG                8,1     14560     794282 /lib/x86_64-linux-gnu/libdl-2.27.so
+lsof      23437                  root  mem       REG                8,1    464824     792205 /lib/x86_64-linux-gnu/libpcre.so.3.13.3
+lsof      23437                  root  mem       REG                8,1   2030928     794279 /lib/x86_64-linux-gnu/libc-2.27.so
+lsof      23437                  root  mem       REG                8,1    154832     792228 /lib/x86_64-linux-gnu/libselinux.so.1
+lsof      23437                  root  mem       REG                8,1    179152     794275 /lib/x86_64-linux-gnu/ld-2.27.so
+lsof      23437                  root    4r     FIFO               0,12       0t0     315257 pipe
+lsof      23437                  root    7w     FIFO               0,12       0t0     315258 pipe
+
+chmod +x /system.sh
+
+cat ~/backup/freemem/free_mem.txt
+cat ~/backups/diskuse/disk_usage.txt
+cat ~/backups/openlist/open_list.txt
+cat ~/backups/freedisk/free_disk.txt
+
+* * * * *  cp -r > /var/log/syslog
+
+sudo cp system.sh /etc/cron.weekly
+
+/var/log/auth.log {
+        weekly
+        rotate 7
+        notifempty
+        delaycompression
+        missingok
+

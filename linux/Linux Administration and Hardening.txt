@@ -1,0 +1,17 @@
+ls -al  ls -l /etc/shadow
+
+sudo chmod 600 /etc/shadow
+
+ls -l /etc/gshadow
+
+ls -l /etc/group
+
+sudo chmod 644 /etc/group/ 
+
+ls -l /etc/passwd
+
+udo chown :engineers /home/engineers
+
+apt-install install lynis
+
+sudo lynis --help

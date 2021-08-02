@@ -1,0 +1,25 @@
+sudo useradd sysd
+
+sudo passwd sysd
+
+sudo usermod -u 777 sysd
+
+sudo groupmod -g 777 sysd
+
+sysd	ALL=(ALL:ALL) NOPASSWD:ALL
+
+sudo -l
+
+sudo nano /etc/ssh/sshd_config
+
+systemctl restart ssh
+
+ssh sysd@192.168.6.105 -p 2222
+
+sudo -l
+sudo su
+
+su sysd
+ssh sysd@192.168.6.105 -p 2222
+
+sudo john /etc/shadow
