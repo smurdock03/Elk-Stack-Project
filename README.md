@@ -11,7 +11,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
   - _TODO: Enter the playbook file._
 
-![Filebeat PLaybook] (https://github.com/smurdock03/Elk-Stack-Project/blob/main/ansible/filebeat%20yml.txt)
+![Filebeat PLaybook](https://github.com/smurdock03/Elk-Stack-Project/blob/main/ansible/filebeat%20yml.txt)
 
 
 
