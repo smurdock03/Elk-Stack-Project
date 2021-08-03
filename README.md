@@ -11,7 +11,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
   - _TODO: Enter the playbook file._
 
-![Filebeat PLaybook](https://github.com/smurdock03/Elk-Stack-Project/blob/main/ansible/filebeat%20yml.txt)
+![Filebeat Playbook](https://github.com/smurdock03/Elk-Stack-Project/blob/main/ansible/filebeat%20yml.txt)
 
 
 
@@ -22,7 +22,7 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will be highly _accessible_, in addition to restricting _access_ to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box? Load Balancers Protect against DDoS attacks. The jumpbox adds an extra layer of protection behind a firewall to ensure multiple layers of protection
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _Jumpbox_ and system _network__.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the Jumpbox and system network.
 - _TODO: What does Filebeat watch for?_ Log files and file name changes
 - _TODO: What does Metricbeat record?_Collects Metrics from the OS and services that are running on the servers
 
@@ -71,7 +71,8 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![TODO: Update the path with the name of your screenshot of docker ps output]
+![Docker ps](https://user-images.githubusercontent.com/88282085/127947197-3fbc1cc5-0ed1-4074-9b7d-d1d23c9466d7.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -81,7 +82,7 @@ We have installed the following Beats on these machines:
 - _TODO: Specify which Beats you successfully installed_ Metricbeats
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._I noticed that the Metricbeat was tracking the PostgreSQL. Its an open source database sytem. 
+- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._I noticed that the Metricbeat was tracking syslogs from zswap. It is a kernel that provides a compressed Ram cache
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
